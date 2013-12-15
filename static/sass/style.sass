@@ -1,33 +1,43 @@
 $background: #eee
+$whisper_color: #ccc
+$quiet_color: #999
 $text_color: #333
-
 $link_color: #477b96
+$link_color: #2178DB
+$banner_color: #600
 
 
 body
     background-color: $background
     color: $text_color
     font-family: 'Crimson Text', serif
-    line-height: 1.5em
     font-size: 100%
 
 .container
     width: 80%
     max-width: 960px
     margin: 0 auto
+    padding: 4em 0
 
 h1
-    font-family: 'Ovo', sans-serif
-    font-size: 3em
-    margin: 1em 0
+    font-family: 'Playfair Display', serif
+    font-size: 5em
 
 h2
     font-size: 2em
-    margin: 1em 0
 
 p
     font-size: 1.5em
     line-height: 1.5em
+    margin-bottom: 1em
+
+pre, code
+    font-family: monospace
+    font-size: 1.5em
+    display: block
+    margin: 2em 0
+    padding: 0.5em
+    background: $whisper_color
 
 a
     color: $link_color
@@ -35,8 +45,25 @@ a
 .center
     text-align: center
 
-.article
-    margin: 0 5em
+body.index
+    h1
+        font-size: 8em
+        color: $banner_color
+    .intro
+        margin: 4em 0
 
-    p
-        margin-bottom: 1em
+body.article
+    .article_header
+        p.pub_date
+            color: $quiet_color
+        margin-bottom: 3em
+    .article_content
+        width: 75%
+        margin: 0 auto
+    .article_footer
+        width: 60%
+        border: 1px solid $quiet_color
+        border-left: 0
+        border-right: 0
+        margin: 4em auto
+        padding: 1em 2em

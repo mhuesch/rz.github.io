@@ -1,2 +1,2 @@
-articles/2013/dec/test_article.html
+articles/2013/dec/test.html
 index.html
