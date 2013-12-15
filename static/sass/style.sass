@@ -58,10 +58,40 @@ body.article
     .article_content
         width: 75%
         margin: 0 auto
+
+        h1
+            font-size: 2.5em
+            font-weight: bold
+        h2
+            font-size: 2em
+            font-weight: bold
+        h3
+            font-size: 1.5em
+
+        hr
+            font-family: FontAwesome
+            font-weight: normal
+            font-style: normal
+            display: block
+            text-decoration: inherit
+            border: 0
+            text-align: center
+            margin: 2em auto
+        hr:after
+            letter-spacing: 1em
+            content: "\f18c \f18c \f18c"
+
+    .article_comments
+        width: 65%
+        border-top: 1px solid $quiet_color
+        padding: 0em 2em
+        margin: 0 auto
+        .comments i
+            float: left
+            margin: 0.2em 0.5em 0 0
+
     .article_footer
         width: 65%
-        border: 1px solid $quiet_color
-        border-left: 0
-        border-right: 0
+        border-top: 1px solid $quiet_color
         margin: 4em auto
         padding: 1em 2em
