@@ -1,2 +1,3 @@
+404.html
 articles/2013/dec/test.html
 index.html
