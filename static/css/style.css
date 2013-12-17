@@ -28,6 +28,11 @@ p {
   padding: 0.5em;
   background: #cccccc; }
 
+ul, ol {
+  padding: 0 3em;
+  display: block;
+  font-size: 1.5em; }
+
 a {
   color: #2178db; }
 
@@ -67,6 +72,10 @@ body.article .article_content {
   body.article .article_content hr:after {
     letter-spacing: 1em;
     content: "\f18c \f18c \f18c"; }
+  body.article .article_content ul {
+    list-style-type: disc; }
+  body.article .article_content ol {
+    list-style-type: decimal; }
 body.article .article_comments {
   width: 65%;
   border-top: 1px solid #999999;
