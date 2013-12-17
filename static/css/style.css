@@ -63,7 +63,7 @@ body.article .article_content {
     text-decoration: inherit;
     border: 0;
     text-align: center;
-    margin: 2em auto; }
+    margin: 1em auto 6em auto; }
   body.article .article_content hr:after {
     letter-spacing: 1em;
     content: "\f18c \f18c \f18c"; }
@@ -78,5 +78,6 @@ body.article .article_comments {
 body.article .article_footer {
   width: 65%;
   border-top: 1px solid #999999;
+  border-bottom: 1px solid #999999;
   margin: 4em auto;
   padding: 1em 2em; }

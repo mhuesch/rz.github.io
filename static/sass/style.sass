@@ -37,6 +37,11 @@ p
     padding: 0.5em
     background: $whisper_color
 
+ul, ol
+    padding: 0 3em
+    display: block
+    font-size: 1.5em
+
 a
     color: $link_color
 
@@ -80,6 +85,11 @@ body.article
         hr:after
             letter-spacing: 1em
             content: "\f18c \f18c \f18c"
+
+        ul
+            list-style-type: disc
+        ol
+            list-style-type: decimal
 
     .article_comments
         width: 65%
