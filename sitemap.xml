@@ -6,6 +6,11 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>articles/2013/dec/facts-about-sf.html</loc>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
         <loc>articles/2013/dec/test.html</loc>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
