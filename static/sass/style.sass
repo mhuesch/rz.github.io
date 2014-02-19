@@ -11,9 +11,14 @@ body
     background-color: $background
     color: $text_color
     font-family: 'Crimson Text', serif
-    font-size: 100%
 
 .container
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+        width: 100%
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px)
+        width: 90%
+        max-width: 1024px
+
     width: 80%
     max-width: 960px
     margin: 0 auto
