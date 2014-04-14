@@ -46,13 +46,13 @@
 
 <p>Things like OpenSSL should be closer organizationally to the way that the Linux Kernel Organization is ran than to the way that django-compressor is ran, but it appears that this isn&#39;t the case.</p>
 
-<p>The &#39;scratch my itch&#39; OSS model does not work for security, it is nobody&#39;s itch to go audit an implementation of SSL. For large organizations, auditing implementations is risk minimization at best. For small organizations it is not even a possibility as small organizations can only afford to scratch their most important itches.</p>
+<p>The &#39;scratch my itch&#39; OSS model does not work for security because it is nobody&#39;s itch to go audit an implementation of SSL. For large organizations, auditing implementations is risk minimization at best. For small organizations it is not even a possibility as small organizations can only afford to scratch their most important itches.</p>
 
 <hr>
 
 <h1>Mono</h1>
 
-<p>While it is tempting to propose some large open source organization ala Apache Foundation, responsible for multiple &#39;indepdent&#39; implementations of important protocols, this would leave exposed whatever risks are inherent in the way the organization is ran.</p>
+<p>While it is tempting to propose some large open source organization a la Apache Foundation, responsible for multiple indepdent implementations of important protocols, this would leave exposed whatever risks are inherent in the way the organization is ran.</p>
 
 <p>The better way, in my humble and grossly uninformed opinion, is to have multiple independent organizations responsible for implementations and try to share as little as possible among them. Minimizing information sharing between open source organizations seems tricky, but having concientious project leaders whose mission is explicitly to run these so that they provide redundancy and diversity might be good enough.</p>
 
@@ -70,9 +70,9 @@
 
 <h1>Resources</h1>
 
-<p>The case has been made elsewhere that we, as a civilization, don&#39;t allocate enough resources to security software. (link to vox piece) This is true, but there is another side of the issue: (link to thread on open ssl about the $1k in donations and pay pal). If you are running something as important as the main implementation of the security protocol of the web, it behooves you to gather resources to do a good job of it. Not doing so is plain irresponsible.</p>
+<p><a href="http://www.vox.com/2014/4/12/5601828/we-massively-underinvest-in-internet-security">The case has been made elsewhere</a> that we, as a civilization, don&#39;t allocate enough resources to security software. This is true, but there is another side of the issue: If you are running something as important as the main implementation of the security protocol of the web, it behooves you to gather resources to do a good job of it. Not doing so is plain irresponsible.</p>
 
-<p>The angle of poor thankless OpenSS developers who give us this much software for little reward does not work. It is true &ndash; and thank them! But it is also a huge failing on their part not to have something akin to the apache foundation to collect donations and organize efforts (e.g. such as running bounty programs and CTF challenges). For a project like OpenSSL, fundraising is not just a minor thing the core devs do, it is as important as writing high-quality code.</p>
+<p>The angle of poor thankless OpenSS developers who give us this much software for little reward does not work. It is true &ndash; and thank them! But it is also a <a href="https://groups.google.com/forum/m/?authuser=0#!topic/mailing.openssl.users/-P4T62ml_1I">huge failing on their part</a> not to have something akin to the apache foundation to collect donations and organize efforts (e.g. such as running bounty programs and CTF challenges). For a project like OpenSSL, fundraising is not just a minor thing the core devs do, it is as important as writing high-quality code.</p>
 
 <hr>
 
@@ -80,7 +80,7 @@
 
 <p>Blah, blah, blah, talk is cheap. How to actually do this? Here&#39;s the high level overview about how I&#39;d go about it. For simplicity I am just referring to and thinking about SSL below, but the arguments should apply generally to any security software project.</p>
 
-<p>Maybe this is because it is all I know, but starting this type of organization as a security non-expert seems very similar to starting a startup. The overarcing ideas are that everything needs validation and iteration and that the project will only work if the people who start it devote about equal parts to &#39;technology&#39; and &#39;business&#39;. The latter, in this case is not about validating a market, but rather, about validating the project for fundraising.</p>
+<p>Maybe this is because it is all I know, but starting this type of organization as a security non-expert seems very similar to starting a startup. The overarcing ideas are that everything needs validation &amp; iteration and that the project will only work if the people who start it devote about equal parts to technology and business. The latter, in this case is not about validating a market, but rather, about validating the project for fundraising.</p>
 
 <p>One aspect in which a project like this is different from a startup is its tolerance to technical debt. A security project has virtually no tolerance, whereas startups can afford a lot of it.</p>
 
@@ -88,13 +88,13 @@
 
 <p>Start it like a side toy-project, with loud disclaimers that it is not ready to be used.</p>
 
-<p>Pick tools that will make it easy to a) learn the protocol and b) code quickly. That suggests to write in a modern scripting language with a rich ecosystem like python; however, since at the onset it&#39;s know that making guarantees about the correctness of the code is important it also makes sense to do it in a language like Haskell or Coq.</p>
+<p>Pick tools that will make it easy to learn the protocol and code quickly. That suggests to write in a modern scripting language with a rich ecosystem like python; however, since at the onset it&#39;s known that making guarantees about the correctness of the code is important it also makes sense to do it in a language like Haskell or Coq.</p>
 
-<p>In the case of security software working in a language without a large ecosystem of libraries is probably an asset in the long run, since you&#39;ll have to really understand whatever libraries you use and often writing something for your specific use-case is easier to do than understanding the general implementation.</p>
+<p>In the case of security software, working in a language without a large ecosystem of libraries is probably an asset in the long run since you&#39;ll have to really understand whatever libraries you use and often writing something for your specific use-case is easier to do than understanding the general implementation.</p>
 
-<p>Start writing code trying to implement the smallest subset possible that makes sense and get something &#39;working&#39; quickly. Then start worrying about code and project organization as to maximize readability and auditability. Those will be difficult to achieve if they aren&#39;t baked into the code from the beginning and, in general, readability and auditability should be as big a concern as having a working implementation.</p>
+<p>Start writing code trying to implement the smallest subset possible that makes sense and get something small working quickly. Then start worrying about code and project organization as to maximize readability and auditability. Those will be difficult to achieve if they aren&#39;t baked into the code from the beginning and, in general, readability and auditability should be as big a concern as having a working implementation.</p>
 
-<p>Some time during the bootstrap phase convince the most talented hacker(s) that I know personally to work on this as a side project.</p>
+<p>Some time during the bootstrap phase I would convince the most talented hacker(s) that I know personally to work on this as a side project.</p>
 
 <p>Proceed implementing incrementally and worry more about the quality of the code and surrounding tooling (e.g. documentation, tests) than the completeness.</p>
 
@@ -104,11 +104,11 @@
 
 <p>It&#39;s tempting to set that goal in some concrete way e.g. &ldquo;we&#39;ll fundraise when we have a full implementation&rdquo;, but that is a mistake. The exact point at which some organization or person is ready to donate money deppends greatly on how the project is being executed. I can also envision kickstarter campaigns succeeding before any milestone is reached.</p>
 
-<p>The overall goal here is to incorporate as 503c and worry about having enough money to pay one maintainer to work full-time on this.</p>
+<p>The overall goal here is to incorporate as 501&copy;3 and worry about having enough money to pay one maintainer to work full-time on this.</p>
 
 <h2>0.9.0</h2>
 
-<p>Shift all focus into completing an implementation of the protocol and producing a toolkit that makes it possible to use this in real, production settings. At this stage only worry about this making a possibility, and not about making it advisable ie keep the loud disclaimers about unreadiness.</p>
+<p>Shift all focus into completing an implementation of the protocol and producing a toolkit that makes it possible to use this in real, production settings. At this stage only worry about this making it a possibility and not about making it advisable i.e. keep the loud disclaimers about unreadiness.</p>
 
 <p>This is analogous to the &#39;through of sorrows&#39; stage of a startup. The milestone of having a complete, usable implementation is very difficult to achieve and resources will be limited. Reaching this milestone may require additional funding, but shifting the project to &ldquo;fundraising mode&rdquo; at this stage should be avoided as much as possible.</p>
 
@@ -120,7 +120,7 @@
 
 <p>The 0.9.x releases are the iterations during which problems exposed by audits and bounty programs get fixed.</p>
 
-<p>Like this, it is possible to never get to 1.0, the first really production-ready release. To fix this, declare that 1.0 will be reached after a given 0.9.x release runs without bugs or problems exposed for a certain amount of time. The amount of time in question should be decided by the core developers.</p>
+<p>Like this, it is possible to never get to 1.0, the first production-ready release. To fix this, declare that 1.0 will be reached after a given 0.9.x release runs without bugs or problems exposed for a certain amount of time. The amount of time in question should be decided by the core developers.</p>
 
 <p>During this phase, organizationally, it is also important to clean up the financial reporting of the organization. The finances should be such that it is transparent how money is allocated across paying people to code, paying people to run the organization, and paying for risk-minimization efforts.</p>
 
@@ -128,7 +128,11 @@
 
 <p>The project declares that it is production ready and shifts focus to driving adoption and increasing the level of risk-minimization. By the 1.0 release the organization should be a mature non-profit organization which employs a small team of core developers full-time and possibly a small business team. A headcount higher than ~10 is likely a bug in the organizational processes and should be fixed accordingly.</p>
 
-<p>In the long term, it is important that the organization remain small and if anything devote additional resources to helping create other &#39;competing&#39; organizations rather than growing. It should neither grow in scope nor in headcount.</p>
+<p>In the long term, it is important that the organization remain small and if anything devote additional resources to helping create other competing organizations rather than growing. It should neither grow in scope nor in headcount.</p>
+
+<hr>
+
+<p>It seems that we are a long way from having truly robust security infrastructure. If</p>
 
     </div>
 
