@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="shortcut icon" href="../../../static/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display|Crimson+Text|Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../../static/css/reset.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../static/css/pygments.css">
+    <link rel="stylesheet" href="../../../static/css/style.css">
+
+    
+    <title>The Structure of Security Software Organizations - rz</title>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46579902-1', 'rz.github.io');
+      ga('send', 'pageview');
+
+    </script>
+</head>
+<body class="article">
+    <div class="container">
+    
+<div class="article">
+    <div class="article_header">
+        <h1 class="center">The Structure of Security Software Organizations</h1>
+        <p class="center pub_date">April 14, 2014</p>
+    </div>
+    <div class="article_content">
+        <p>This heartbleed thing shook us all a little bit. Just like I was in awe the first time I gained a conceptual understanding of computers from the transistor up all the way to http, this time I am in awe that so much of our critical infrastructure is so fragile. I mean fragile in the <a href="http://en.wikipedia.org/wiki/Antifragile">Taleb</a> sense i.e. neither able of improving because of volatility and stress nor able to withstand them.</p>
+
+<p>I am no security expert or anything of the sort, but there is one glaring fragility in all of this: the organizational structure of the entities that produce infrastructure. In this case I mean the OpenSSL project specifically, and more on that in a bit, but the issue is broader: if SSL is so important why does 66% of the web rely on a single implementation of it? Why aren&#39;t there 20 independent open source implementations? Heck, why aren&#39;t there 3?</p>
+
+<hr>
+
+<h1>Open Source Models</h1>
+
+<p>The organizational model of the Apache Software Foundation is different than, for example, the average Django app or Rails plugin. And rightfully so.</p>
+
+<p>Things like OpenSSL should be closer organizationally to the way that the Linux Kernel Organization is ran than to the way that django-compressor is ran, but it appears that this isn&#39;t the case.</p>
+
+<p>The &#39;scratch my itch&#39; OSS model does not work for security, it is nobody&#39;s itch to go audit an implementation of SSL. For large organizations, auditing implementations is risk minimization at best. For small organizations it is not even a possibility as small organizations can only afford to scratch their most important itches.</p>
+
+<hr>
+
+<h1>Mono</h1>
+
+<p>While it is tempting to propose some large open source organization ala Apache Foundation, responsible for multiple &#39;indepdent&#39; implementations of important protocols, this would leave exposed whatever risks are inherent in the way the organization is ran.</p>
+
+<p>The better way, in my humble and grossly uninformed opinion, is to have multiple independent organizations responsible for implementations and try to share as little as possible among them. Minimizing information sharing between open source organizations seems tricky, but having concientious project leaders whose mission is explicitly to run these so that they provide redundancy and diversity might be good enough.</p>
+
+<p>One way or another, achieving redundancy is important.</p>
+
+<h2>Monoculture</h2>
+
+<p>The security industry brands itself as uterly impenetrable. Don&#39;t bother if you are not an expert. This is very detrimental. Crypto is hard, yes, but that doesn&#39;t obviate the need to diversify and encourage people to participate.</p>
+
+<p>Compare this attitude to, say, how we got the linux kernel: talented hacker just did it and got into an argument with the experts. Culturally, at the time, there was no sign at the door telling people to go away because they are not experts.</p>
+
+<p>Monoculture is just a special case of monolithic and a couple of levels up the abstraction ladder from monolithic organization. Monolithic organization is bad, monoculture is worse.</p>
+
+<hr>
+
+<h1>Resources</h1>
+
+<p>The case has been made elsewhere that we, as a civilization, don&#39;t allocate enough resources to security software. (link to vox piece) This is true, but there is another side of the issue: (link to thread on open ssl about the $1k in donations and pay pal). If you are running something as important as the main implementation of the security protocol of the web, it behooves you to gather resources to do a good job of it. Not doing so is plain irresponsible.</p>
+
+<p>The angle of poor thankless OpenSS developers who give us this much software for little reward does not work. It is true &ndash; and thank them! But it is also a huge failing on their part not to have something akin to the apache foundation to collect donations and organize efforts (e.g. such as running bounty programs and CTF challenges). For a project like OpenSSL, fundraising is not just a minor thing the core devs do, it is as important as writing high-quality code.</p>
+
+<hr>
+
+<h1>Ideas on How To Start and Run One</h1>
+
+<p>Blah, blah, blah, talk is cheap. How to actually do this? Here&#39;s the high level overview about how I&#39;d go about it. For simplicity I am just referring to and thinking about SSL below, but the arguments should apply generally to any security software project.</p>
+
+<p>Maybe this is because it is all I know, but starting this type of organization as a security non-expert seems very similar to starting a startup. The overarcing ideas are that everything needs validation and iteration and that the project will only work if the people who start it devote about equal parts to &#39;technology&#39; and &#39;business&#39;. The latter, in this case is not about validating a market, but rather, about validating the project for fundraising.</p>
+
+<p>One aspect in which a project like this is different from a startup is its tolerance to technical debt. A security project has virtually no tolerance, whereas startups can afford a lot of it.</p>
+
+<h2>Bootstrap</h2>
+
+<p>Start it like a side toy-project, with loud disclaimers that it is not ready to be used.</p>
+
+<p>Pick tools that will make it easy to a) learn the protocol and b) code quickly. That suggests to write in a modern scripting language with a rich ecosystem like python; however, since at the onset it&#39;s know that making guarantees about the correctness of the code is important it also makes sense to do it in a language like Haskell or Coq.</p>
+
+<p>In the case of security software working in a language without a large ecosystem of libraries is probably an asset in the long run, since you&#39;ll have to really understand whatever libraries you use and often writing something for your specific use-case is easier to do than understanding the general implementation.</p>
+
+<p>Start writing code trying to implement the smallest subset possible that makes sense and get something &#39;working&#39; quickly. Then start worrying about code and project organization as to maximize readability and auditability. Those will be difficult to achieve if they aren&#39;t baked into the code from the beginning and, in general, readability and auditability should be as big a concern as having a working implementation.</p>
+
+<p>Some time during the bootstrap phase convince the most talented hacker(s) that I know personally to work on this as a side project.</p>
+
+<p>Proceed implementing incrementally and worry more about the quality of the code and surrounding tooling (e.g. documentation, tests) than the completeness.</p>
+
+<h2>0.0.1</h2>
+
+<p>Once the project reaches a certain level of maturity make &#39;fundraising&#39; the top priority. The level of maturity needed is whatever allows these to happen: someone wants to wrok full-time on the project and the project can convince third parties to donate money.</p>
+
+<p>It&#39;s tempting to set that goal in some concrete way e.g. &ldquo;we&#39;ll fundraise when we have a full implementation&rdquo;, but that is a mistake. The exact point at which some organization or person is ready to donate money deppends greatly on how the project is being executed. I can also envision kickstarter campaigns succeeding before any milestone is reached.</p>
+
+<p>The overall goal here is to incorporate as 503c and worry about having enough money to pay one maintainer to work full-time on this.</p>
+
+<h2>0.9.0</h2>
+
+<p>Shift all focus into completing an implementation of the protocol and producing a toolkit that makes it possible to use this in real, production settings. At this stage only worry about this making a possibility, and not about making it advisable ie keep the loud disclaimers about unreadiness.</p>
+
+<p>This is analogous to the &#39;through of sorrows&#39; stage of a startup. The milestone of having a complete, usable implementation is very difficult to achieve and resources will be limited. Reaching this milestone may require additional funding, but shifting the project to &ldquo;fundraising mode&rdquo; at this stage should be avoided as much as possible.</p>
+
+<p>0.9.0 is the first complete working implementation, the one that contains the fruit of our best efforts.</p>
+
+<h2>0.9.x</h2>
+
+<p>The next main goal is to secure funding to be able to run risk-minimization efforts. Namely, a bug bounty prorgram, a continuous pwn-the-server contest, and to pay for an audit of the source code done by an independent third-party of high repute (e.g. Matasano).</p>
+
+<p>The 0.9.x releases are the iterations during which problems exposed by audits and bounty programs get fixed.</p>
+
+<p>Like this, it is possible to never get to 1.0, the first really production-ready release. To fix this, declare that 1.0 will be reached after a given 0.9.x release runs without bugs or problems exposed for a certain amount of time. The amount of time in question should be decided by the core developers.</p>
+
+<p>During this phase, organizationally, it is also important to clean up the financial reporting of the organization. The finances should be such that it is transparent how money is allocated across paying people to code, paying people to run the organization, and paying for risk-minimization efforts.</p>
+
+<h2>1.0</h2>
+
+<p>The project declares that it is production ready and shifts focus to driving adoption and increasing the level of risk-minimization. By the 1.0 release the organization should be a mature non-profit organization which employs a small team of core developers full-time and possibly a small business team. A headcount higher than ~10 is likely a bug in the organizational processes and should be fixed accordingly.</p>
+
+<p>In the long term, it is important that the organization remain small and if anything devote additional resources to helping create other &#39;competing&#39; organizations rather than growing. It should neither grow in scope nor in headcount.</p>
+
+    </div>
+
+    
+
+    <div class="article_footer">
+        <p>
+            Hi, I'm Rodrigo. I'm founder and CTO of <a href="http://idonethis.com">iDoneThis</a>.
+            In a past life I was a graduate student in theoretical physics.
+        </p>
+        <p>
+            If you'd like to chat, I'm <a href="http://twitter.com/rodguze">@rodguze</a> on twitter,
+            I respond to most email at <a href="mailto:rodguze@gmail.com">rodguze@gmail.com</a>,
+            or book office hours <a href="https://clarity.fm/rz">here</a>.
+        </p>
+    </div>
+</div>
+
+    </div>
+
+    
+</body>
+</html>
