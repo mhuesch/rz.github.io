@@ -52,15 +52,15 @@
 
 <h1>Mono</h1>
 
-<p>While it is tempting to propose some large open source organization a la Apache Foundation, responsible for multiple indepdent implementations of important protocols, this would leave exposed whatever risks are inherent in the way the organization is ran.</p>
+<p>While it is tempting to propose some large open source organization a la Apache Foundation, responsible for multiple independent implementations of important protocols, this would leave exposed whatever risks are inherent in the way the organization is ran.</p>
 
-<p>The better way, in my humble and grossly uninformed opinion, is to have multiple independent organizations responsible for implementations and try to share as little as possible among them. Minimizing information sharing between open source organizations seems tricky, but having concientious project leaders whose mission is explicitly to run these so that they provide redundancy and diversity might be good enough.</p>
+<p>The better way, in my humble and grossly uninformed opinion, is to have multiple independent organizations responsible for implementations and try to share as little as possible among them. Minimizing information sharing between open source organizations seems tricky, but having conscientious project leaders whose mission is explicitly to run these so that they provide redundancy and diversity might be good enough.</p>
 
 <p>One way or another, achieving redundancy is important.</p>
 
 <h2>Monoculture</h2>
 
-<p>The security industry brands itself as uterly impenetrable. Don&#39;t bother if you are not an expert. This is very detrimental. Crypto is hard, yes, but that doesn&#39;t obviate the need to diversify and encourage people to participate.</p>
+<p>The security industry brands itself as utterly impenetrable. Don&#39;t bother if you are not an expert. This is very detrimental. Crypto is hard, yes, but that doesn&#39;t obviate the need to diversify and encourage people to participate.</p>
 
 <p>Compare this attitude to, say, how we got the linux kernel: talented hacker just did it and got into an argument with the experts. Culturally, at the time, there was no sign at the door telling people to go away because they are not experts.</p>
 
@@ -72,7 +72,7 @@
 
 <p><a href="http://www.vox.com/2014/4/12/5601828/we-massively-underinvest-in-internet-security">The case has been made elsewhere</a> that we, as a civilization, don&#39;t allocate enough resources to security software. This is true, but there is another side of the issue: If you are running something as important as the main implementation of the security protocol of the web, it behooves you to gather resources to do a good job of it. Not doing so is plain irresponsible.</p>
 
-<p>The angle of poor thankless OpenSS developers who give us this much software for little reward does not work. It is true &ndash; and thank them! But it is also a <a href="https://groups.google.com/forum/m/?authuser=0#!topic/mailing.openssl.users/-P4T62ml_1I">huge failing on their part</a> not to have something akin to the apache foundation to collect donations and organize efforts (e.g. such as running bounty programs and CTF challenges). For a project like OpenSSL, fundraising is not just a minor thing the core devs do, it is as important as writing high-quality code.</p>
+<p>The angle of poor thankless OpenSS developers who give us this much software for little reward does not work. It is true &ndash; and thank them! But it is also a <a href="https://groups.google.com/forum/m/?authuser=0#!topic/mailing.openssl.users/-P4T62ml_1I">huge failing on their part</a> not to have something akin to the Apache Foundation to collect donations and organize efforts (e.g. such as running bounty programs and CTF challenges). For a project like OpenSSL, fundraising is not just a minor thing the core devs do, it is as important as writing high-quality code.</p>
 
 <hr>
 
@@ -80,7 +80,7 @@
 
 <p>Blah, blah, blah, talk is cheap. How to actually do this? Here&#39;s the high level overview about how I&#39;d go about it. For simplicity I am just referring to and thinking about SSL below, but the arguments should apply generally to any security software project.</p>
 
-<p>Maybe this is because it is all I know, but starting this type of organization as a security non-expert seems very similar to starting a startup. The overarcing ideas are that everything needs validation &amp; iteration and that the project will only work if the people who start it devote about equal parts to technology and business. The latter, in this case is not about validating a market, but rather, about validating the project for fundraising.</p>
+<p>Maybe this is because it is all I know, but starting this type of organization as a security non-expert seems very similar to starting a startup. The overarching ideas are that everything needs validation &amp; iteration and that the project will only work if the people who start it devote about equal parts to technology and business. The latter, in this case is not about validating a market, but rather, about validating the project for fundraising.</p>
 
 <p>One aspect in which a project like this is different from a startup is its tolerance to technical debt. A security project has virtually no tolerance, whereas startups can afford a lot of it.</p>
 
@@ -100,9 +100,9 @@
 
 <h2>0.0.1</h2>
 
-<p>Once the project reaches a certain level of maturity make &#39;fundraising&#39; the top priority. The level of maturity needed is whatever allows these to happen: someone wants to wrok full-time on the project and the project can convince third parties to donate money.</p>
+<p>Once the project reaches a certain level of maturity make fundraising the top priority. The level of maturity needed is whatever allows these to happen: someone wants to work full-time on the project and the project can convince third parties to donate money.</p>
 
-<p>It&#39;s tempting to set that goal in some concrete way e.g. &ldquo;we&#39;ll fundraise when we have a full implementation&rdquo;, but that is a mistake. The exact point at which some organization or person is ready to donate money deppends greatly on how the project is being executed. I can also envision kickstarter campaigns succeeding before any milestone is reached.</p>
+<p>It&#39;s tempting to set that goal in some concrete way e.g. &ldquo;we&#39;ll fundraise when we have a full implementation&rdquo;, but that is a mistake. The exact point at which some organization or person is ready to donate money depends greatly on how the project is being executed. I can also envision kickstarter campaigns succeeding before any milestone is reached.</p>
 
 <p>The overall goal here is to incorporate as 501&copy;3 and worry about having enough money to pay one maintainer to work full-time on this.</p>
 
@@ -116,7 +116,7 @@
 
 <h2>0.9.x</h2>
 
-<p>The next main goal is to secure funding to be able to run risk-minimization efforts. Namely, a bug bounty prorgram, a continuous pwn-the-server contest, and to pay for an audit of the source code done by an independent third-party of high repute (e.g. Matasano).</p>
+<p>The next main goal is to secure funding to be able to run risk-minimization efforts. Namely, a bug bounty program, a continuous pwn-the-server contest, and to pay for an audit of the source code done by an independent third-party of high repute (e.g. Matasano).</p>
 
 <p>The 0.9.x releases are the iterations during which problems exposed by audits and bounty programs get fixed.</p>
 
@@ -131,6 +131,8 @@
 <p>In the long term, it is important that the organization remain small and if anything devote additional resources to helping create other competing organizations rather than growing. It should neither grow in scope nor in headcount.</p>
 
 <hr>
+
+<p>Heartbleed showed that we are very far off from having truly robust security infrastructure. Organizational factors are just as important technological ones. We dramatically improve the status quo by innovating and iterating on the organizational structure of security-related open-source problems. Let&#39;s do that.</p>
 
     </div>
 
