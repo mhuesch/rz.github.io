@@ -1,6 +1,7 @@
+@charset "UTF-8";
 body {
-  background-color: #eeeeee;
-  color: #333333;
+  background-color: #eee;
+  color: #333;
   font-family: "Crimson Text", serif; }
 
 .container {
@@ -8,20 +9,27 @@ body {
   max-width: 960px;
   margin: 0 auto;
   padding: 4em 0; }
-  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .container {
       width: 100%; } }
-  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     .container {
       width: 90%;
       max-width: 1024px; } }
 
-h1 {
+h1.rz {
   font-family: "Playfair Display", serif;
+  font-size: 8em;
+  color: #600; }
+
+h1 {
   font-size: 5em; }
 
 h2 {
-  font-size: 2em; }
+  font-size: 3em;
+  line-height: 1.1;
+  margin-top: 30px;
+  margin-bottom: 20px; }
 
 p {
   font-size: 1.5em;
@@ -32,29 +40,32 @@ p {
   font-family: "Inconsolata", monospace;
   font-size: 1.2em;
   padding: 0.5em;
-  background: #cccccc; }
+  background: #ccc; }
 
 ul, ol {
   padding: 0 3em;
   display: block;
   font-size: 1.5em; }
 
+ul.articles {
+  padding: 0;
+  display: block; }
+  ul.articles li {
+    margin: 20px; }
+
 a {
-  color: #2178db; }
+  color: #2178DB; }
 
 .center {
   text-align: center; }
 
-body.index h1 {
-  font-size: 8em;
-  color: #660000; }
 body.index .intro {
   margin: 4em 0; }
 
 body.article .article_header {
   margin-bottom: 3em; }
   body.article .article_header p.pub_date {
-    color: #999999; }
+    color: #999; }
 body.article .article_content {
   width: 75%;
   margin: 0 auto; }
@@ -77,22 +88,22 @@ body.article .article_content {
     margin: 1em auto 6em auto; }
   body.article .article_content hr:after {
     letter-spacing: 1em;
-    content: "\f18c \f18c \f18c"; }
+    content: ""; }
   body.article .article_content ul {
     list-style-type: disc; }
   body.article .article_content ol {
     list-style-type: decimal; }
 body.article .article_comments {
-  width: 65%;
-  border-top: 1px solid #999999;
+  border-top: 1px solid #999;
   padding: 0em 2em;
   margin: 2em auto; }
   body.article .article_comments .comments i {
     float: left;
     margin: 0.2em 0.5em 0 0; }
 body.article .article_footer {
-  width: 65%;
-  border-top: 1px solid #999999;
-  border-bottom: 1px solid #999999;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
   margin: 4em auto;
   padding: 1em 2em; }
+
+/*# sourceMappingURL=style.css.map */

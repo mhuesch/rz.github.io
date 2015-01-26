@@ -24,12 +24,20 @@ body
     margin: 0 auto
     padding: 4em 0
 
-h1
+h1.rz
     font-family: 'Playfair Display', serif
+    font-size: 8em
+    color: $banner_color
+
+
+h1
     font-size: 5em
 
 h2
-    font-size: 2em
+    font-size: 3em
+    line-height: 1.1
+    margin-top: 30px
+    margin-bottom: 20px
 
 p
     font-size: 1.5em
@@ -42,10 +50,17 @@ p
     padding: 0.5em
     background: $whisper_color
 
+
 ul, ol
     padding: 0 3em
     display: block
     font-size: 1.5em
+
+ul.articles
+    padding: 0
+    display: block
+    li
+        margin: 20px
 
 a
     color: $link_color
@@ -54,9 +69,6 @@ a
     text-align: center
 
 body.index
-    h1
-        font-size: 8em
-        color: $banner_color
     .intro
         margin: 4em 0
 
@@ -97,7 +109,6 @@ body.article
             list-style-type: decimal
 
     .article_comments
-        width: 65%
         border-top: 1px solid $quiet_color
         padding: 0em 2em
         margin: 2em auto
@@ -106,7 +117,6 @@ body.article
             margin: 0.2em 0.5em 0 0
 
     .article_footer
-        width: 65%
         border-top: 1px solid $quiet_color
         border-bottom: 1px solid $quiet_color
         margin: 4em auto
