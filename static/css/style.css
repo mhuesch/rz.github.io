@@ -62,6 +62,9 @@ a {
 body.index .intro {
   margin: 4em 0; }
 
+em {
+  font-style: italic; }
+
 body.article .article_header {
   margin-bottom: 3em; }
   body.article .article_header p.pub_date {
