@@ -4,4 +4,5 @@ articles/2013/dec/test.html
 articles/2013/dec/whats-wrong-with-the-protests.html
 articles/2014/apr/security-orgs.html
 articles/2014/feb/startup-employee-compensation.html
+articles/2015/feb/health-and-fitness.html
 index.html
