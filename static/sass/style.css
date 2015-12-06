@@ -46,6 +46,8 @@ ul, ol {
   padding: 0 3em;
   display: block;
   font-size: 1.5em; }
+  ul li, ol li {
+    margin: 0.5em 0; }
 
 ul.articles {
   padding: 0;
@@ -58,6 +60,9 @@ a {
 
 .center {
   text-align: center; }
+
+em {
+  font-style: italic; }
 
 body.index .intro {
   margin: 4em 0; }
