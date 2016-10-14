@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body {
-  background-color: #eee;
+  background-color: #fff;
   color: #333;
   font-family: "Crimson Text", serif; }
 
@@ -100,7 +100,7 @@ body.article .article_content {
     list-style-type: decimal; }
   body.article .article_content blockquote {
     padding: 0 1em;
-    border-left: 4px solid #ccc;
+    border-left: 4px solid #999;
     margin-left: 1em; }
 body.article .article_comments {
   border-top: 1px solid #999;
