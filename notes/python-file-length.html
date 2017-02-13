@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="shortcut icon" href="../static/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="../static/favicon.png" />
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display|Crimson+Text|Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/pygments.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    
+    <title>python file length - rz</title>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-46579902-1', 'rz.github.io');
+      ga('send', 'pageview');
+
+    </script>
+</head>
+<body class="article">
+    <div class="container">
+    
+<div class="article">
+    <div class="article_header">
+        <h2 class="center">python file length</h2>
+    </div>
+    <div class="article_content">
+        <p>i&#39;d like to dispel the notion that small files are good and long files are bad.</p>
+
+<p>zen of python: Flat is better than nested.</p>
+
+<hr>
+
+<p>definitions:</p>
+
+<p>module = a .py file</p>
+
+<p>package = a directory containing an <code>__init__.py</code> and possibly other .py files or
+packages.</p>
+
+<hr>
+
+<p>the main benefit of breaking up a module into a package is clarifying the
+structure of the abstractions. the main cost of breaking up a file is that it
+increases complexity by introducing indirection.</p>
+
+<p>one way to think about it is to consider the contents of the module as a tree.
+breaking up the module is in order when the depth of the tree &gt; 3. (for depth
+1: module suffices, just put functions in the module, for depth 2: module
+suffices, group using classes and/or naming)</p>
+
+<p><code>__init__.py</code> is there to help create the desired API for the package (and
+because python&#39;s module system uses them to discover packages). by default,
+<code>__init__.py</code> should be empty. the only reasons to put code in <code>__init__.py</code> is
+to hide some of structure of the abstractions in the package from its user.</p>
+
+<p>the way to decide whether to break up a module into a package is to design the
+API. breaking up modules without designing the API of the module/package is
+adding indirection without good reason. the simplicity of the implementation of
+the API is what determines whether the module should be broken up and what goes
+in <code>__init__.py</code></p>
+
+<p>all of these are are insufficient reasons to break up a module:</p>
+
+<p>&ldquo;it is more than one class&rdquo; (it&#39;s python, not java :)</p>
+
+<p>&ldquo;it is too many functions&rdquo; (use code folding)</p>
+
+<p>&ldquo;it is too many lines&rdquo; (use code folding)</p>
+
+<p>&ldquo;there are different kinds of classes/functions&rdquo; (ok if the API makes sense)</p>
+
+<hr>
+
+<h1>heuristics</h1>
+
+<p>optimize for discoverability and readability. remember that there are many ways
+to browse code: grep, editor, fuzzy search, web interface (like GH), ? and ??
+in ipython, &hellip;</p>
+
+<p>sometimes, but not always, long files indicate that there is nested structure
+in the file.</p>
+
+<p>sometimes, but not always, long files indicate that said structure should be
+signaled to the user of the code.</p>
+
+<p>sometimes, but not always, long files indicate that abstractions are violating
+single-responsibility principle.</p>
+
+<p>sometimes, but not always, long files indicate that the structure of a module
+is &ldquo;long list&rdquo;.</p>
+
+<p>if you feel like breaking up a module is in order, but defining and documenting
+the API is too much work, you probably shouldn&#39;t break it up.</p>
+
+<p>if you feel the need to document and define an API, consider making a package
+instead of a module.</p>
+
+<p>if there are analogous, but different, implementations of the same abstraction
+and those abstractions have lower-level dependencies (e.g. json and xml
+serializers) consider making a package.</p>
+
+<p>in application code (as opposed to systems code or framework/library code)
+packages should be rare.</p>
+
+<p>django enforces or suggests a lot of the project structure, creating additional
+structure may not be in-line with intended use.</p>
+
+<p>consider whether the package you are creating should be a library/dependency.</p>
+
+<hr>
+
+<p>some of this is a matter of taste which makes it doubly important that
+conventions are explicitly codified.</p>
+
+<p>zen of python: Explicit is better than implicit.</p>
+
+<hr>
+
+<h1>quotes on this topic</h1>
+
+<blockquote>
+<p>One way to think about this is how will the developers/peers use the API. Will
+my package be like one namespace like <code>from myframework import DB, Template</code> or
+<code>from myframework.models import DB</code>.  This may help you to answer the question
+of splitting the code based on functionality or perceivable abstraction.</p>
+</blockquote>
+
+<p>&ndash; <a href="http://kracekumar.com/">Krace Kumar</a> (prolific pythonista, <a href="https://recurse.com">RC</a>)</p>
+
+<blockquote>
+<p>I agree that the most important part of organizing code into files is making
+the codebase readable. There are some nice advantages to having large files
+that have all the code you need (single-file search and jumping around is
+usually a nicer experience than multi-file). For most projects, I usually pick
+an initial code organization strategy that&#39;s pretty simple and intuitive, and
+try to keep different types of things in separate files for
+clarity/organization. If some piece gets to be around 1000 lines, I usually
+start thinking about breaking it up even if there isn&#39;t a clear organizational
+benefit but there are always exceptions. Zulip&#39;s Python codebase has ~5 &gt;1000
+line non-test files that I think would be worse if we broke them apart, and a
+similar number of test files with the same property.  We also have some
+subsystems, like our webhook integrations, that have a few files per
+integration, and we&#39;re pretty happy with that model for that application.</p>
+</blockquote>
+
+<p>&ndash; <a href="http://web.mit.edu/tabbott/www/">Tim Abbott</a> (creator &amp; maintainer of <a href="http://zulip.org">zulip</a>, dropbox, <a href="https://recurse.com">RC</a>)</p>
+
+<hr>
+
+<h1>further reading</h1>
+
+<p><a href="http://docs.python-guide.org/en/latest/writing/structure/">http://docs.python-guide.org/en/latest/writing/structure/</a>
+<a href="https://docs.python.org/2/tutorial/modules.html">https://docs.python.org/2/tutorial/modules.html</a>
+<a href="https://docs.python.org/3/tutorial/modules.html">https://docs.python.org/3/tutorial/modules.html</a></p>
+
+    </div>
+</div>
+
+    </div>
+
+    
+</body>
+</html>

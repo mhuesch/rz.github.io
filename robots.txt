@@ -7,4 +7,5 @@ articles/2014/feb/startup-employee-compensation.html
 articles/2015/feb/health-and-fitness.html
 articles/2016/oct/time-on-your-side.html
 index.html
+notes/python-file-length.html
 RC.html
